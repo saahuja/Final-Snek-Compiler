@@ -101,7 +101,6 @@ fn snek_eq_mut(val1: i64, val2: i64, seen: &mut Vec<(i64, i64)>) -> bool {
     let array_size2 = unsafe { *addr2 } >> 1;
 
     if array_size1 != array_size2 { //unequal size (return false)
-        seen.pop();
         return false;
     }
 
@@ -110,7 +109,6 @@ fn snek_eq_mut(val1: i64, val2: i64, seen: &mut Vec<(i64, i64)>) -> bool {
         let subval2 = unsafe { *addr2.offset(i as isize) };
 
         if !snek_eq_mut(subval1, subval2, seen) {
-            seen.pop();
             return false;
         }
     }
