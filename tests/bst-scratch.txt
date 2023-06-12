@@ -1,0 +1,89 @@
+
+
+
+(print (block (print (length nil)) (print (lookup (array 3 (3 nil nil)) 5))))
+
+(lookup (array 3 (3 nil nil)) 5)
+
+(fun (length vals)
+    (index vals 0) //change code so that if index is called on nil it will return 0
+)
+
+(fun (lookup tree val)
+    (if (= (length tree 0))
+        false
+        (let ((node (index tree 1))
+              (left (index tree 2))
+              (right (index tree 3)))
+            (if (= val node)
+                throw_bounds_error
+                (if (< value node)
+                    (lookup left value)
+                    (lookup right value)
+                )
+            )   
+        )
+    )
+)
+
+
+
+(fun (insert_bst tree val)
+    (if (= (length tree) 0) 
+        (array 3 (val nil nil))
+        (let ((node (index tree 1))
+              (left (index tree 2))
+              (right (index tree 3)))
+            (if (< val node)
+                (array 3 (node (insert_bst left val) right))
+                (array 3 (node left (insert_bst right val)))
+            )    
+         )
+    )        
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(fun (create_bst_helper sorted_vals) 
+    (if (= (length sorted_vals) 0)
+        (let 
+            ((mid_index (div2 (length sorted_vals)))
+            (mid_value (index sorted_vals mid_index)
+            (left_subtree (create_bst_helper (index sorted_vals 0 mid_index))
+            
+
+
+
+        
+        
+        )
+        nil
+    )
+)
+        )))
+
+(fun (create_bst input_vals)
+    (let ((sorted_vals input_vals))
+        (create_bst_helper sorted_vals))
+)
+

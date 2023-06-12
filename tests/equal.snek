@@ -1,0 +1,19 @@
+(block 
+    (print (== (array 10 (100 234 -24 234 -33 -56 1000 85 81)) (array 10 (100 234 -24 234 -33 -56 1000 85 80)))) 
+    (print (= nil nil)) 
+    (print (let ((a (array 10 (100 234 -24 234 -33 -56 1000 85 81))) (b (array 10 (100 234 -24 234 -33 -56 1000 85 81)))) 
+    
+            (block (print (= a b)) (print (== a b)) (print (setarr! a 9 80)) (print (== a b)) (print (setarr! a 9 81)) (== a b))))
+            
+   
+    (print (let ((a (array 6)) (b a)) (= a b)))    
+
+
+    (print (== (array 10000) (array 10001))) 
+    (print (== (array 10000) (array 10000)))
+    (print (== (array 5) (array 5))) 
+    (print (= (array 5) (array 5))) 
+               
+)
+
+    

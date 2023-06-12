@@ -1,0 +1,7 @@
+
+
+(fun (addpoints p1 p2)
+    (array 2 ((+ (index p1 1) (index p2 1)) (+ (index p1 2) (index p2 2))))
+)
+
+(print (addpoints (array 2 (5 5)) (array 2 (10 10))))

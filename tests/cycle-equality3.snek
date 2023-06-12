@@ -1,0 +1,20 @@
+(let ((a (array 3 (1 2 3))) (b (array 3 (4 5 6))) (c (array 3 (7 8 9))))
+    (block 
+    
+        (setarr! c 3 a)
+        (setarr! a 3 b)
+        (setarr! b 3 c)
+        (print a)
+        (print (== c a))
+        (print (== b a))
+        (print (== a b))
+        (print (== b c))
+        (print (== a a))   
+        (print (= c a))
+        (print (= b a))
+        (print (= a b))
+        (print (= b c))
+        (print (= a a))  
+
+    )
+)

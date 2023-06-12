@@ -1,0 +1,78 @@
+(fun (length vals)
+    (if (= vals nil)
+        0
+        (index vals 0) 
+    )
+)
+
+
+(fun (insert_bst tree val)
+    (if (= (length tree) 0) 
+        (array 3 (val nil nil))
+        (let ((node (index tree 1))
+              (left (index tree 2))
+              (right (index tree 3)))
+            (if (< val node)
+                (array 3 (node (insert_bst left val) right))
+                (array 3 (node left (insert_bst right val)))
+            )    
+         )
+    )        
+)
+
+
+(fun (lookup tree val)
+    (if (= (length tree) 0)
+        false
+        (let ((node (index tree 1))
+              (left (index tree 2))
+              (right (index tree 3)))
+            (if (= val node)
+                true
+                (if (< val node)
+                    (lookup left val)
+                    (lookup right val)
+                )
+            )   
+        )
+    )
+)
+
+
+(block 
+    (print (lookup (array 3 (3 (array 3 (2 nil nil)) (array 3 (5 nil nil)))) 6))
+
+    (print (lookup (array 3 (3 (array 3 (2 nil nil)) (array 3 (5 nil nil)))) 2))
+
+    (print (lookup (array 3 (3 (array 3 (2 nil nil)) (array 3 (5 nil nil)))) 5))
+
+    (print (lookup (array 3 (3 (array 3 (2 nil nil)) (array 3 (5 nil nil)))) 3))
+
+
+    (let ((x nil))
+        (block 
+            (set! x (insert_bst x 2))
+            (set! x (insert_bst x 3))
+            (set! x (insert_bst x 5))
+            (set! x (insert_bst x 243))
+            (set! x (insert_bst x 1000))
+            (set! x (insert_bst x 12))
+            (set! x (insert_bst x 20))
+            (set! x (insert_bst x -40))
+            (set! x (insert_bst x 30))
+            (set! x (insert_bst x 6))
+            (print (lookup x 2))
+            (print (lookup x 3))
+            (print (lookup x 5))
+            (print (lookup x 6))
+            (print (lookup x 12))
+            (print (lookup x 30))
+            (print (lookup x 1000))
+            (print (lookup x 243))
+            (print (lookup x 20))
+            (print (lookup x 500))
+            (print x)
+        )
+    )
+
+)
